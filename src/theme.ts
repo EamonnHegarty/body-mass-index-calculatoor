@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     background: {
-      default: "#FFFFFF",
+      default: "#5E6E85", // reverse this to
     },
     primary: {
       main: "#5E6E85", // dark electric blue
@@ -28,7 +28,7 @@ const theme = createTheme({
       fontSize: 48,
       fontWeight: 600,
     },
-    // Heading N
+    // Heading M
     h3: {
       fontSize: 24,
       fontWeight: 600,
