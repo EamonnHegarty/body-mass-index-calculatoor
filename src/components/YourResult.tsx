@@ -1,4 +1,3 @@
-import React from "react";
 import ManEating from "../assets/images/image-man-eating.webp";
 import { Box, Grid, Typography } from "@mui/material";
 

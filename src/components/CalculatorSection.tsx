@@ -14,11 +14,11 @@ const CalculatorSection = () => {
           position: "absolute",
           top: 0,
           left: 0,
-          width: { xs: "100%", md: "75%" }, // Adjusts the width on smaller screens
+          width: { xs: "100%", md: "75%" },
           height: "100%",
           zIndex: -1,
           background: "linear-gradient(45deg, #E7F6FE 30%, #E7F6FE 90%)",
-          borderBottomRightRadius: { xs: "0px", md: "50px" }, // Adjusts the border radius on smaller screens
+          borderBottomRightRadius: { xs: "0px", md: "50px" },
         },
       }}
     >
@@ -59,7 +59,6 @@ const CalculatorSection = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        // paddingRight={10}
         sx={{
           paddingRight: {
             md: 10,
