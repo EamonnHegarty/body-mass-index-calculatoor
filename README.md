@@ -29,13 +29,14 @@ Users should be able to:
 
 
 ### Screenshot
-Work in progress
+![image](https://github.com/EamonnHegarty/body-mass-index-calculatoor/assets/91144434/4828a6ea-60f1-433f-9dcd-d7839514d6a4)
+
 
 
 
 ### Links
 
-- Work in progress
+- [Live URL](https://body-mass-index-calculator.onrender.com/)
 
 ## My process
 
