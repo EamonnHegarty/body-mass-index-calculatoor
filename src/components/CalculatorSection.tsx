@@ -6,7 +6,8 @@ const CalculatorSection = () => {
     <Grid
       container
       sx={{
-        height: "100vh",
+        height: { md: "100vh" },
+
         position: "relative",
         "&::before": {
           content: '""',
@@ -16,7 +17,7 @@ const CalculatorSection = () => {
           width: { xs: "100%", md: "75%" }, // Adjusts the width on smaller screens
           height: "100%",
           zIndex: -1,
-          background: "linear-gradient(100deg, #D6E6FE 0%, #D6E6FE 100%)",
+          background: "linear-gradient(45deg, #E7F6FE 30%, #E7F6FE 90%)",
           borderBottomRightRadius: { xs: "0px", md: "50px" }, // Adjusts the border radius on smaller screens
         },
       }}
@@ -33,7 +34,7 @@ const CalculatorSection = () => {
             md: 10,
             sm: 4,
             xs: 4,
-            xl: 18,
+            xl: 15,
           },
           textAlign: {
             md: "left",
