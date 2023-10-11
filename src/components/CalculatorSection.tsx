@@ -17,7 +17,9 @@ const CalculatorSection = () => {
           width: { xs: "100%", md: "75%" },
           height: "100%",
           zIndex: -1,
-          background: "linear-gradient(45deg, #E7F6FE 30%, #E7F6FE 90%)",
+          background:
+            "var(--Gradient-1, linear-gradient(290deg, #D6FEF8 0%, rgba(214, 252, 254, 0.00) 33.33%, rgba(214, 252, 254, 0.00) 66.67%, rgba(214, 252, 254, 0.00) 100%))",
+
           borderBottomRightRadius: { xs: "0px", md: "50px" },
         },
       }}

@@ -41,16 +41,17 @@ const YourResult = () => {
             xs: 4,
             xl: 15,
           },
-          textAlign: {
-            md: "left",
-            sm: "center",
-          },
+          textAlign: { md: "left", sm: "center", xs: "center" },
         }}
       >
         <Typography variant="h1" gutterBottom>
           What your BMI result means
         </Typography>
-        <Typography variant="body1" mt={2}>
+        <Typography
+          variant="body1"
+          mt={2}
+          sx={{ textAlign: { md: "left", sm: "center", xs: "center" } }}
+        >
           A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
           Maintaining a healthy weight may lower your chances of experiencing
           health issues later on, such as obesity and type 2 diabetes. Aim for a
