@@ -72,7 +72,15 @@ const BMICalculator = () => {
   }, [height, weight]);
 
   return (
-    <Card sx={{ maxWidth: "35rem", m: 2, p: 1 }}>
+    <Card
+      sx={{
+        maxWidth: "35rem",
+        m: 2,
+        p: 1,
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        borderRadius: "10px",
+      }}
+    >
       <CardContent>
         <Grid container spacing={3} padding={1}>
           <Grid item xs={12}>
