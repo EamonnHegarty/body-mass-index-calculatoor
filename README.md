@@ -29,7 +29,16 @@ Users should be able to:
 
 
 ### Screenshot
+
+Calculator Section
 ![image](https://github.com/EamonnHegarty/body-mass-index-calculatoor/assets/91144434/4828a6ea-60f1-433f-9dcd-d7839514d6a4)
+
+Your Result Section (Need to make dynamic) 
+![image](https://github.com/EamonnHegarty/body-mass-index-calculatoor/assets/91144434/88f79cec-cfda-4862-9c5f-5dc6ca3425a6)
+
+Tips Section
+**![image](https://github.com/EamonnHegarty/body-mass-index-calculatoor/assets/91144434/e556225d-214a-457e-ac61-20b1a234a9a8)
+**
 
 
 
