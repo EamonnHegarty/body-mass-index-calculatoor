@@ -28,13 +28,30 @@ const LimitationsSection = () => {
       container
       columnSpacing={4}
       rowSpacing={6}
-      sx={{ py: 10, px: { md: 10, sm: 10, xs: 10, xl: 15 } }}
+      sx={{
+        py: 8,
+        px: {
+          md: 10,
+          sm: 15,
+          xs: 5,
+          xl: 15,
+        },
+      }}
     >
       <Grid item sm={12} md={8}>
-        <Typography variant="h2" gutterBottom maxWidth="650px">
+        <Typography
+          variant="h2"
+          gutterBottom
+          maxWidth="650px"
+          sx={{ textAlign: { xs: "center" } }}
+        >
           Limitations of BMI
         </Typography>
-        <Typography variant="body1" maxWidth="650px">
+        <Typography
+          variant="body1"
+          maxWidth="650px"
+          sx={{ textAlign: { xs: "center" } }}
+        >
           Although BMI is often a practical indicator of healthy weight, it is
           not suited for every person. Specific groups should carefully consider
           their BMI outcomes, and in certain cases, the measurement may not be
