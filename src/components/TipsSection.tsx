@@ -37,7 +37,12 @@ const TipsSection = () => {
         maxWidth: { sm: "100%", md: "calc(100% - 50px)" },
         mx: "auto",
         borderRadius: "25px",
-        px: { sm: 15, md: 10 },
+        px: {
+          md: 10,
+          sm: 15,
+          xs: 5,
+          xl: 15,
+        },
         py: 8,
         background:
           "var(--Gradient-1, linear-gradient(290deg, #D6FEF8 0%, rgba(214, 252, 254, 0.00) 33.33%, rgba(214, 252, 254, 0.00) 66.67%, rgba(214, 252, 254, 0.00) 100%))",
