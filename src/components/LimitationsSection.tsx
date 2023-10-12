@@ -28,7 +28,7 @@ const LimitationsSection = () => {
       container
       columnSpacing={4}
       rowSpacing={6}
-      sx={{ py: 10, px: { md: 10, sm: 15, xs: 15, xl: 15 } }}
+      sx={{ py: 10, px: { md: 10, sm: 10, xs: 10, xl: 15 } }}
     >
       <Grid item sm={12} md={8}>
         <Typography variant="h2" gutterBottom maxWidth="650px">
