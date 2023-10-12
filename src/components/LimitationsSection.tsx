@@ -43,14 +43,14 @@ const LimitationsSection = () => {
           variant="h2"
           gutterBottom
           maxWidth="650px"
-          sx={{ textAlign: { xs: "center" } }}
+          sx={{ textAlign: { xs: "center", sm: "left" } }}
         >
           Limitations of BMI
         </Typography>
         <Typography
           variant="body1"
           maxWidth="650px"
-          sx={{ textAlign: { xs: "center" } }}
+          sx={{ textAlign: { xs: "center", sm: "left" } }}
         >
           Although BMI is often a practical indicator of healthy weight, it is
           not suited for every person. Specific groups should carefully consider

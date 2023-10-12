@@ -20,6 +20,11 @@ const BMICalculator = () => {
   const [idealWeights, setIdealWeights] = useState("");
   const [healthStatus, setHealthStatus] = useState("");
 
+  const [feet, setFeet] = useState(0);
+  const [inches, setInches] = useState(0);
+  const [stone, setStone] = useState(0);
+  const [pounds, setPounds] = useState(0);
+
   const handleOnUnitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUnit(event.target.value);
   };
@@ -37,6 +42,20 @@ const BMICalculator = () => {
   const calculateBMI = (height: number, weight: number) => {
     const heightInMeters = height / 100;
     const bmi = weight / heightInMeters ** 2;
+
+    setBmi(bmi);
+  };
+
+  const calculateImperialBMI = (
+    feet: number,
+    inches: number,
+    stone: number,
+    pounds: number
+  ) => {
+    const totalHeightInInches = feet * 12 + inches;
+    const totalWeightInPounds = stone * 14 + pounds;
+
+    const bmi = (totalWeightInPounds / totalHeightInInches ** 2) * 703;
 
     setBmi(bmi);
   };
@@ -68,8 +87,12 @@ const BMICalculator = () => {
   }, [height, bmi]);
 
   useEffect(() => {
-    calculateBMI(height, weight);
-  }, [height, weight]);
+    if (unit === "metric") {
+      calculateBMI(height, weight);
+    } else if (unit === "imperial") {
+      calculateImperialBMI(feet, inches, stone, pounds);
+    }
+  }, [height, weight, feet, inches, stone, pounds, unit]);
 
   return (
     <Card
@@ -133,80 +156,252 @@ const BMICalculator = () => {
               </RadioGroup>
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth
-              label={<Typography variant="body1">Height</Typography>}
-              id="height-label"
-              type="number"
-              value={height}
-              onChange={handleOnHeightChange}
-              sx={{
-                "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
-                  {
-                    WebkitAppearance: "none",
-                    margin: 0,
-                  },
-                '& input[type="number"]': {
-                  MozAppearance: "textfield",
-                },
+          {unit === "metric" ? (
+            <>
+              <Grid item xs={6}>
+                <TextField
+                  fullWidth
+                  label={<Typography variant="body1">Height</Typography>}
+                  id="height-label"
+                  type="number"
+                  value={height}
+                  onChange={handleOnHeightChange}
+                  sx={{
+                    "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                    '& input[type="number"]': {
+                      MozAppearance: "textfield",
+                    },
 
-                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  {
-                    borderColor: "primary.light",
-                  },
-                "& .MuiInputLabel-outlined.Mui-focused": {
-                  color: "primary.light",
-                },
-              }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="start">
-                    <Typography variant="h3" sx={{ color: "primary.light" }}>
-                      cm
-                    </Typography>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth
-              value={weight}
-              onChange={handleOnWeightChange}
-              label={<Typography variant="body1">Weight</Typography>}
-              id="weight-label"
-              type="number"
-              sx={{
-                "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
-                  {
-                    WebkitAppearance: "none",
-                    margin: 0,
-                  },
-                '& input[type="number"]': {
-                  MozAppearance: "textfield",
-                },
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        borderColor: "primary.light",
+                      },
+                    "& .MuiInputLabel-outlined.Mui-focused": {
+                      color: "primary.light",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Typography
+                          variant="h3"
+                          sx={{ color: "primary.light" }}
+                        >
+                          cm
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  fullWidth
+                  value={weight}
+                  onChange={handleOnWeightChange}
+                  label={<Typography variant="body1">Weight</Typography>}
+                  id="weight-label"
+                  type="number"
+                  sx={{
+                    "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                    '& input[type="number"]': {
+                      MozAppearance: "textfield",
+                    },
 
-                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  {
-                    borderColor: "primary.light",
-                  },
-                "& .MuiInputLabel-outlined.Mui-focused": {
-                  color: "primary.light",
-                },
-              }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="start">
-                    <Typography variant="h3" sx={{ color: "primary.light" }}>
-                      kg
-                    </Typography>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        borderColor: "primary.light",
+                      },
+                    "& .MuiInputLabel-outlined.Mui-focused": {
+                      color: "primary.light",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Typography
+                          variant="h3"
+                          sx={{ color: "primary.light" }}
+                        >
+                          kg
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Grid item xs={6}>
+                <TextField
+                  fullWidth
+                  value={feet}
+                  onChange={(e) => setFeet(parseFloat(e.target.value))}
+                  label={<Typography variant="body1">Height</Typography>}
+                  id="feet"
+                  type="number"
+                  sx={{
+                    "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                    '& input[type="number"]': {
+                      MozAppearance: "textfield",
+                    },
+
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        borderColor: "primary.light",
+                      },
+                    "& .MuiInputLabel-outlined.Mui-focused": {
+                      color: "primary.light",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Typography
+                          variant="h3"
+                          sx={{ color: "primary.light" }}
+                        >
+                          ft
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  fullWidth
+                  value={inches}
+                  onChange={(e) => setInches(parseFloat(e.target.value))}
+                  id="inches"
+                  type="number"
+                  sx={{
+                    "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                    '& input[type="number"]': {
+                      MozAppearance: "textfield",
+                    },
+
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        borderColor: "primary.light",
+                      },
+                    "& .MuiInputLabel-outlined.Mui-focused": {
+                      color: "primary.light",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Typography
+                          variant="h3"
+                          sx={{ color: "primary.light" }}
+                        >
+                          in
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  fullWidth
+                  value={stone}
+                  onChange={(e) => setStone(parseFloat(e.target.value))}
+                  label={<Typography variant="body1">Weight</Typography>}
+                  id="weight-label-imperial"
+                  type="number"
+                  sx={{
+                    "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                    '& input[type="number"]': {
+                      MozAppearance: "textfield",
+                    },
+
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        borderColor: "primary.light",
+                      },
+                    "& .MuiInputLabel-outlined.Mui-focused": {
+                      color: "primary.light",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Typography
+                          variant="h3"
+                          sx={{ color: "primary.light" }}
+                        >
+                          st
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  fullWidth
+                  value={pounds}
+                  onChange={(e) => setPounds(parseFloat(e.target.value))}
+                  label={<Typography variant="body1">lbs</Typography>}
+                  id="weight-label"
+                  type="number"
+                  sx={{
+                    "& input::-webkit-inner-spin-button, & input::-webkit-outer-spin-button":
+                      {
+                        WebkitAppearance: "none",
+                        margin: 0,
+                      },
+                    '& input[type="number"]': {
+                      MozAppearance: "textfield",
+                    },
+
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        borderColor: "primary.light",
+                      },
+                    "& .MuiInputLabel-outlined.Mui-focused": {
+                      color: "primary.light",
+                    },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <Typography
+                          variant="h3"
+                          sx={{ color: "primary.light" }}
+                        >
+                          kg
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+            </>
+          )}
           <Grid
             container
             item
