@@ -21,7 +21,7 @@ const LimitationsCard = ({
               py: 2,
             }}
           >
-            <Box component="img" src={icon} />
+            <Box component="img" src={icon} pr={1} />
             <Typography variant="h3" gutterBottom>
               {title}
             </Typography>
