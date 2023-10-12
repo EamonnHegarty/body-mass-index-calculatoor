@@ -18,14 +18,13 @@ const LimitationsCard = ({
               display: "flex",
               alignItems: "left",
               justifyContent: "left",
-              width: "auto",
-              height: "auto",
-              px: "auto",
               py: 2,
             }}
           >
             <Box component="img" src={icon} />
-            <Typography variant="h3">{title}</Typography>
+            <Typography variant="h3" gutterBottom>
+              {title}
+            </Typography>
           </Box>
           <Typography variant="body1">{description}</Typography>
         </Box>

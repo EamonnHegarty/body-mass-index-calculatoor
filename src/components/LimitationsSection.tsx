@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import { Grid } from "@mui/material";
 import LimitationsCard from "./LimitationsCard";
 import Gender from "../assets/images/icon-gender.svg";
 
@@ -10,7 +10,7 @@ const LimitationsSection = () => {
   return (
     <Grid
       container
-      py={5}
+      py={10}
       sx={{
         px: {
           md: 10,
@@ -18,9 +18,7 @@ const LimitationsSection = () => {
           xs: 5,
           xl: 15,
         },
-        // mx: "auto",
       }}
-      spacing={5}
     >
       <Grid sm={12} md={8}>
         <Typography variant="h2" gutterBottom maxWidth={"750px"}>
@@ -40,7 +38,8 @@ const LimitationsSection = () => {
           description="The development and body fat composition of girls and boys vary with age. Consequently, a child's age and gender are considered when evaluating their BMI."
         />
       </Grid>
-      <Grid md={4} mdOffset={4}>
+      <Grid md={4} />
+      <Grid md={4}>
         <LimitationsCard
           icon={Gender}
           title="Gender"

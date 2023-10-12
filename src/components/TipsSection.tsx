@@ -35,7 +35,6 @@ const TipsSection = () => {
       spacing={2}
       sx={{
         maxWidth: { sm: "100%", md: "calc(100% - 50px)" },
-        mx: "auto",
         borderRadius: "25px",
         px: {
           md: 10,
